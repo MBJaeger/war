@@ -1,28 +1,75 @@
 /*----- constants -----*/
-const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
-"hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
-"c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
-"s05","s04","s03","s02"];
+//const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
+// "hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
+// "c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
+// "s05","s04","s03","s02"];
 
-const athlete1 = document.getElementsByClassName('athleteOne');
-const athlete2 = document.getElementsByClassName('athleteTwo');
-const warZone = document.getElementsByClassName('war-zone');
-const rBtn = document.getElementById('buttonReset');
-const pBtn = document.getElementById('buttonPlay');
 
 /*----- app's state (variables) -----*/
+var cardUp = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+var suits = ["diamons", "hearts", "spades", "clubs"];''
 
+var playButton = document.querySelector('btnPlay');
 
 /*----- cached element references -----*/
 
 
-
 /*----- event listeners -----*/
+playButton.addEventListener('click', onClick);
+
+
+
+// /*----- functions -----*/
+// function play() {
+// console.log('working');
+// }
+
+function cards() {
+    cards = [];
+    for (s in suits) {
+    var suits = suits [s][0]
+
+
+    }
+
+function shuffle(){
+
+}
 
 
 
 
-/*----- functions -----*/
+
+
+// function flipCard() {
+//     if (cards.length) {
+//     let rndIdx = Math.floor(Math.random() * cards.length) 
+//     cardFlipped = cards.splice(rndIdx, 1);
+//     flippedCards.push(cardFlipped[0]); 
+//     }
+//     render(); 
+// }
+
+
+
+// function render() {
+//     //removedCard = cardFlipped;
+//     if (flippedCards.length === 1){
+//     pileA2.classList.replace('outline', cardFlipped)
+//     } else {
+//         pileA2.classList.replace(removedCard, cardFlipped[0]);
+//     }
+//     if (cards.length === 0){
+//         pileA1.classList.replace('back', 'outline')
+//     }
+//     if (cards.length === 26) {
+//         pileA1.classList.remove('shadow');
+//         pileB1.classList.add('shadow');
+//     }
+// };
+
+
+
 //on StartClick 
 //--Shuffle cards, 26 cards get assigned to each player.
 //on PlayClick - gets highlighted right after cards have been assigned.

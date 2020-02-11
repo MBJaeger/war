@@ -1,43 +1,8 @@
 @charset "UTF-8";
-header {
-  background-color: rgba(190, 6, 214, 0.44);
-  font-family: 'Montserrat', sans-serif, white;
-  margin: 80px 400px 0px 200px;
-  text-align: center;
-}
-
-header.title {
-  font-size: 60px;
-  font-weight: bolder;
-}
-
-section {
-  background-color: rgba(9, 203, 9, 0.502);
-  margin: 0px 400px 20px 200px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-}
-.athleteOne {
-  text-align: center;
-
-}
-
-.athleteTwo {
-  text-align: center;
-}
-
-.warZone {
-  text-align: center;
-}
-
-.buttons {
-  margin-left: 500px;
-
-}
 .card {
   box-sizing: border-box;
   display: inline-block;
-  margin: 50px 100px 20px 80px;
+  margin: 5px 5px 50px 5px;
   cursor: pointer;
   /* Set the card's dimensions, and size it relative to
      it's font size. */
@@ -45,7 +10,7 @@ section {
   width: 4.0em;
   height: 5.5em;
   /* Add a default background color and border. */
-  background-color: #fff;
+  background-color: rgb(246, 245, 245);
   border-radius: 0.20em;
   border: 1px dobl #c3c3c3;
   /* Scale and set the background settings. */
