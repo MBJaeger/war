@@ -6,10 +6,11 @@ const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d0
 
 
 /*----- app's state (variables) -----*/
-let pile1down = [];
-let pile1up= [];
-let pile2down = [];
-let pile2up = [];
+let pile1cards = [];
+let pile1flipped= [];
+let pile2cards = [];
+let pile2flipped = [];
+let winHand;
 // var cardUp = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
 // var suits = ["diamons", "hearts", "spades", "clubs"];
 //let winHand;
@@ -45,7 +46,7 @@ function shuffle() {
     }
 };
 
-function dealCards() {
+function deal() {
     //shuffle();
     if (cards.length) {
         for (let i = 0; i < 26; i++) {
@@ -59,23 +60,45 @@ function dealCards() {
 
 
 
-// function playCards() {
-//     if (p1Cards.length > 0 && p2Cards.length > 0) {
-//         p1Flipped = p1Cards.splice(0, 1);
-//         p1flip.classList.replace('outline', p1Flipped);
-//     
-//     }
-//     if (p2Cards.length > 0 && p2Cards.length > 0) {
-//         p2Flipped = p2Cards.splice(0, 1);
-//         p2flip.classList.replace('outline', p2Flipped);
-//         
-//     }
-//     playButton.classList.add('hidden');
-//     compareCards();
-// };
+function play() {
+    if (pile1cards.length > 0 && pile2cards.length > 0) {
+        pile1flipped = pile1cards.splice(0, 1);
+        pile1up.classList.replace('outline', pile1flipped);
+      }
+    if (pile2cards.length > 0 && pile2cards.length > 0) {
+        pile2flipped = pile2cards.splice(0, 1);
+        pile2flipped.classList.replace('outline', pile2flipped);    
+  }
+};
+//compareCards();
 
 
+function winnerCheck() {
+   //turning this one to a point system, where game stops when player reaches 15 points. 
+    if (pile1cards.length === 0) {
+        message.textContent = "Player Two Wins!"
 
+    } else if (pile2cards.length === 0) {
+        message.textContent = "Player One Wins!"
+    }
+};
+
+function compareCards() {
+    if (lookUp(pile1flipped) > lookUp(pile2flipped)) {
+        pile1cards.push(`${pile1flipped}`);
+        pile1cards.push(`${pile2flipped}`);
+        pile2cards.splice(pile2cards.length, 1);
+        winHand = 1;
+    } else if (lookUp(pile1flipped) < lookUp(pile2flipped)) {
+        pile2cards.push(`${pile2flipped}`);
+        pile2cards.push(`${pile1flipped}`);
+        pile1cards.splice(pile1cards.length, 1);
+        winHand = 2;
+    } else {
+        war();
+    }
+    winnerCheck();
+};
 
 
 // function flipCard() {
