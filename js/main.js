@@ -1,167 +1,88 @@
 /*----- constants -----*/
-const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
+var cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
 "hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
 "c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
 "s05","s04","s03","s02"];
 
 
 /*----- app's state (variables) -----*/
-let pile1cards = [];
-let pile1flipped= [];
-let pile2cards = [];
-let pile2flipped = [];
-let winningTurn = [];
-let playerScore1 = [];
-let playerScore2 = [];
+var deck1 = [];
+var flipped1 = [];
+var deck2 = [];
+var flipped2 = [];
+var isWinner = false;
+// var score1 = [];
+// var score2 = [];
+//let winningTurn = [];
 
-// var cardUp = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
-// var suits = ["diamons", "hearts", "spades", "clubs"];
-//let winHand;
-//var playButton = document.querySelector('btnPlay');
 
 /*----- cached element references -----*/
-const pile1down = document.getElementById('pile1down')
-const pile1up = document.getElementById('pile1up')
-const pile2down = document.getElementById('pile2down')
-const pile2up = document.getElementById('pile2up')
-const playbtn = document.getElementById('playbtn')
+var deck1 = document.getElementById('deck1');
+var flipped1 = document.getElementById('flipped1');
+var deck2 = document.getElementById('deck2');
+var flipped2 = document.getElementById('flipped2');
+var playBtn = document.getElementById('playBtn');
 //const playReset?? - I could use play to play and reset when game is over
 
-
 /*----- event listeners -----*/
-playButton.addEventListener('click', onClick);
-
+playBtn.addEventListener('click', play);
 
 
 // /*----- functions -----*/
-// function play() {
-// console.log('working');
-// }
-
-//init ();
-function initialize() {
-    playerScore1 = 0;
-    playerScore2 = 0;
+function init() {
+var cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
+"hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
+"c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
+"s05","s04","s03","s02"];
+deck1 = [];
+deck2 = [];
 }
+
 
 function shuffle() {
     let idx = cards.length, temp, rndIdx;
     while (0 !== idx) {
-    rndIdx = Math.floor(Math.random() * idx);
-    idx -= 1;
-    temp = cards[idx];
-    cards[idx] = cards[rndIdx];
-    cards[rndIdx] = temp;
+     rndIdx = Math.floor(Math.random()*idx);
+     idx -= 1;
+     temp = cards[idx];
+     cards[idx] = cards [rndIdx];
+     cards[rndIdx] = temp;   
     }
 };
 
 function deal() {
-    //shuffle();
-    if (cards.length) {
+    shuffle();
+        if (cards.length === 52) {
+        for (i=1; i<=26; i++) {
+            deck1Dealt = cards.splice(0, 1);
+            deck1.push(deck1Dealt[0]);
+        }
         for (let i = 0; i < 26; i++) {
-        pile1distro = pile1Up.splice(0, 1);
-        pile1cards.push(pile1distro[0]);
-     }
-        for (let i = 0; i < 26; i++) {
-        pile2distro = pile2Up.splice(0, 1);
-        pile2cards.push(pile2distro[0]);
+            deck2Dealt = cards.splice(0, 1);
+            deck2.push(deck2Dealt[0]);  
+        }
     }
+};
 
 function play() {
-    if (pile1cards.length > 0 && pile2cards.length > 0) {
-        pile1flipped = pile1cards.splice(0, 1);
-        pile1up.classList.replace('outline', pile1flipped);
+    if (deck1.length > 0 && deck2.length > 0) {
+        flipped1 = deck1.splice(0, 1);
       }
-    if (pile2cards.length > 0 && pile2cards.length > 0) {
-        pile2flipped = pile2cards.splice(0, 1);
-        pile2flipped.classList.replace('outline', pile2flipped);    
+    if (deck2.length > 0 && deck2.length > 0) {
+        flipped2 = deck2.splice(0, 1); 
   }
 };
-//checkCards();
 
-function winnerCheck() {
-    if (pile1cards.length === 0) {
-        message.textContent = "Player Two Wins!"
-
-    } else if (pile2cards.length === 0) {
-        message.textContent = "Player One Wins!"
-    }
-};
-
-function checkCards() {
-    if (lookUp(pile1flipped) > lookUp(pile2flipped)) {
-        pile1cards.push(`${pile1flipped}`);
-        pile1cards.push(`${p2flipped}`);
-        pile2cards.splice(pile2cards.length, 1);
-        winningTurn = 1;
-    } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
-        pile2cards.push(`${pile2flipped}`);
-        pile2cards.push(`${pile1flipped}`);
-        pile1cards.splice(pile1cards.length, 1);
-        winningTurn = 2;
-    } else {
-        war();
-    }
-    winnerCheck();
-};
-
-
-
-
-// function flipCard() {
-//     if (cards.length) {
-//     let rndIdx = Math.floor(Math.random() * cards.length) 
-//     cardFlipped = cards.splice(rndIdx, 1);
-//     flippedCards.push(cardFlipped[0]); 
-//     }
-//     render(); 
-// }
-
-
-
-// function render() {
-//     //removedCard = cardFlipped;
-//     if (flippedCards.length === 1){
-//     pileA2.classList.replace('outline', cardFlipped)
-//     } else {
-//         pileA2.classList.replace(removedCard, cardFlipped[0]);
-//     }
-//     if (cards.length === 0){
-//         pileA1.classList.replace('back', 'outline')
-//     }
-//     if (cards.length === 26) {
-//         pileA1.classList.remove('shadow');
-//         pileB1.classList.add('shadow');
-//     }
-// };
-
-
-
-//on StartClick 
-//--Shuffle cards, 26 cards get assigned to each player.
-//on PlayClick - gets highlighted right after cards have been assigned.
-    //card on top of each deck moves to "faceUp" space. 
-    //recognize highest value from "faceUp" cards and origin player and move both cards to botton of "faceDown" pile
-    //When both 'faceUp' cards have equal value, WAR STARTS
-            //BIG War message pop-up
-            //Three face down + One face up card gets moved to the "War" space
-            //Player with highest value on "faceUp" card, wins all cards.
-
-    //Every time a player looses a hand, 3 burpees are asigned to their count.         
-    //Game ends when one player reaches 15 burpees. 
-    //Message: "Time for burpees!"" Pops up      
-
-
-//GAME DEVELOPMENT LIST
-//1 create board - two positions per player, two positions for war
-
-//How to structure code
-// 1) Create players
-// 2) Create Board
-//3) Create Card Deck
-//4) Each Player has 
-
-
+// function flipCards() {
+//     let compare1 = deck1.splice();
+//         card1Remove = compare1;
+//         console.log(compare1)
+//     let value1 = lookUp(compare1);
+//         console.log(value1)
+//     let compare2 = deck2.shift();
+//         card2Remove = compare2;
+//         let value2 = lookUp(`${compare2}`);
+//         }
 
 function lookUp(x) {
     if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
@@ -192,104 +113,3 @@ function lookUp(x) {
         return 2;
     }
 };
-
-/*----- constants -----*/
-//const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
-// "hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
-// "c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
-// "s05","s04","s03","s02"];
-
-
-/*----- app's state (variables) -----*/
-var cardUp = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
-var suits = ["diamons", "hearts", "spades", "clubs"];''
-
-var playButton = document.querySelector('btnPlay');
-
-/*----- cached element references -----*/
-
-
-/*----- event listeners -----*/
-playButton.addEventListener('click', onClick);
-
-
-
-// /*----- functions -----*/
-// function play() {
-// console.log('working');
-// }
-
-function cards() {
-    cards = [];
-    for (s in suits) {
-    var suits = suits [s][0]
-
-
-    }
-
-function shuffle(){
-
-}
-
-
-
-
-
-
-// function flipCard() {
-//     if (cards.length) {
-//     let rndIdx = Math.floor(Math.random() * cards.length) 
-//     cardFlipped = cards.splice(rndIdx, 1);
-//     flippedCards.push(cardFlipped[0]); 
-//     }
-//     render(); 
-// }
-
-
-
-// function render() {
-//     //removedCard = cardFlipped;
-//     if (flippedCards.length === 1){
-//     pileA2.classList.replace('outline', cardFlipped)
-//     } else {
-//         pileA2.classList.replace(removedCard, cardFlipped[0]);
-//     }
-//     if (cards.length === 0){
-//         pileA1.classList.replace('back', 'outline')
-//     }
-//     if (cards.length === 26) {
-//         pileA1.classList.remove('shadow');
-//         pileB1.classList.add('shadow');
-//     }
-// };
-
-
-
-//on StartClick 
-//--Shuffle cards, 26 cards get assigned to each player.
-//on PlayClick - gets highlighted right after cards have been assigned.
-    //card on top of each deck moves to "faceUp" space. 
-    //recognize highest value from "faceUp" cards and origin player and move both cards to botton of "faceDown" pile
-    //When both 'faceUp' cards have equal value, WAR STARTS
-            //BIG War message pop-up
-            //Three face down + One face up card gets moved to the "War" space
-            //Player with highest value on "faceUp" card, wins all cards.
-
-    //Every time a player looses a hand, 3 burpees are asigned to their count.         
-    //Game ends when one player reaches 15 burpees. 
-    //Message: "Time for burpees!"" Pops up      
-
-
-//GAME DEVELOPMENT LIST
-//1 create board - two positions per player, two positions for war
-
-//How to structure code
-// 1) Create players
-// 2) Create Board
-//3) Create Card Deck
-//4) Each Player has 
-
-
-
-
-

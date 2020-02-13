@@ -19,3 +19,34 @@ With our Burpee War version of the game, our goal is to create a fun and interac
 Have fun and we hope you lose! 
 
 # war
+
+Technologies Used
+
+Link to Game Page
+
+
+
+//on StartClick 
+//--Shuffle cards, 26 cards get assigned to each player.
+//on PlayClick - gets highlighted right after cards have been assigned.
+    //card on top of each deck moves to "faceUp" space. 
+    //recognize highest value from "faceUp" cards and origin player and move both cards to botton of "faceDown" pile
+    //When both 'faceUp' cards have equal value, WAR STARTS
+            //BIG War message pop-up
+            //Three face down + One face up card gets moved to the "War" space
+            //Player with highest value on "faceUp" card, wins all cards.
+
+    //Every time a player looses a hand, 3 burpees are asigned to their count.         
+    //Game ends when one player reaches 15 burpees. 
+    //Message: "Time for burpees!"" Pops up      
+
+
+//GAME DEVELOPMENT LIST
+//1 create board - two positions per player, two positions for war
+
+//How to structure code
+// 1) Create players
+// 2) Create Board
+//3) Create Card Deck
+//4) Each Player has 
+
