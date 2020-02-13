@@ -3,18 +3,19 @@ var cards;
 
 
 /*----- app's state (variables) -----*/
-//These connect code with JS only.
+//These connect code with JS only. Make words plural when applicable. 
 var deck1Values;
 var flipped1Value;
 var deck2Values;
 var flipped2Value;
-//ar isWinner = false;
+var deck1Dealt = [];
+var deck2Dealt = [];
 // var score1 = [];
 // var score2 = [];
-//let winningTurn = [];
 
 
-/*----- cached element references -----*/
+
+/*----- cached element references -----*///connect with the DOM
 var deck1 = document.getElementById('deck1');
 var flipped1 = document.getElementById('flipped1');
 var deck2 = document.getElementById('deck2');
@@ -34,6 +35,8 @@ function init() {
     "s05","s04","s03","s02"];
     deck1Values = [];
     deck2Values = [];
+    shuffle();
+    deal();
     render();
 }
 
@@ -50,38 +53,37 @@ function shuffle() {
 };
 
 function deal() {
-    shuffle();
+    //shuffle();
         if (cards.length === 52) {
         for (i=1; i<=26; i++) {
             deck1Dealt = cards.splice(0, 1);
-            deck1.push(deck1Dealt[0]);
+            deck1Values.push(deck1Dealt[0]);
         }
         for (let i = 0; i < 26; i++) {
             deck2Dealt = cards.splice(0, 1);
-            deck2.push(deck2Dealt[0]);  
+            deck2Values.push(deck2Dealt[0]);  
         }
     }
 };
 
 function play() {
-    if (deck1.length > 0 && deck2.length > 0) {
-        flipped1 = deck1.splice(0, 1);
-      }
-    if (deck2.length > 0 && deck2.length > 0) {
-        flipped2 = deck2.splice(0, 1); 
-  }
+    cardPicked = deck1Values.pop();
+    flipped1.classList.add(cardPicked)
+}   
+ 
+
+
+function render() { 
+    if (deck1Values.length === 0) {deck1.classList.add('outline')}
+    if (deck2Values.length === 0) {deck2.classList.add('outline')}
+    if (deck1Values.length === 0) {deck1.classList.remove('back-blue')}
+    if (deck2Values.length === 0) {deck2.classList.remove('back-blue')}
+    if (deck1Values.length !== 0) {deck1.classList.add('back-blue')}
+    if (deck2Values.length !== 0) {deck2.classList.add('back-blue')}
+    if (deck1Values.length !== 0) {deck1.classList.remove('outline')}
+    if (deck2Values.length !== 0) {deck2.classList.remove('outline')}
 };
 
-// function flipCards() {
-//     let compare1 = deck1.splice();
-//         card1Remove = compare1;
-//         console.log(compare1)
-//     let value1 = lookUp(compare1);
-//         console.log(value1)
-//     let compare2 = deck2.shift();
-//         card2Remove = compare2;
-//         let value2 = lookUp(`${compare2}`);
-//         }
 
 function lookUp(x) {
     if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
@@ -112,3 +114,4 @@ function lookUp(x) {
         return 2;
     }
 };
+init();
