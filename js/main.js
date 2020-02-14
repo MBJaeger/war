@@ -1,29 +1,26 @@
 /*----- constants -----*/
-const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
-"hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
-"c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
-"s05","s04","s03","s02"];
-
+var cards;
 
 /*----- app's state (variables) -----*/
-let pile1cards = [];
-let pile1flipped= [];
-let pile2cards = [];
-let pile2flipped = [];
-let winHand;
-// var cardUp = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
-// var suits = ["diamons", "hearts", "spades", "clubs"];
-//let winHand;
-//var playButton = document.querySelector('btnPlay');
+var deck1Values;
+var flipped1Value;
+var deck2Values;
+var flipped2Value;
+var deck1Dealt = [];
+var deck2Dealt = [];
+var compare1;
+var compare2;
+var p1Score = 0;
+var p2Score = 0;
 
 /*----- cached element references -----*/
-const pile1down = document.getElementById('pile1down')
-const pile1up = document.getElementById('pile1up')
-const pile2down = document.getElementById('pile2down')
-const pile2up = document.getElementById('pile2up')
-const playbtn = document.getElementById('playbtn')
-//const playReset?? - I could use play to play and reset when game is over
-
+var deck1 = document.getElementById('deck1');
+var flipped1 = document.getElementById('flipped1');
+var deck2 = document.getElementById('deck2');
+var flipped2 = document.getElementById('flipped2');
+var playBtn = document.getElementById('playBtn');
+var score1 = document.getElementById('score1');
+var message = document.getElementById('message');
 
 /*----- event listeners -----*/
 playBtn.addEventListener('click', play);
