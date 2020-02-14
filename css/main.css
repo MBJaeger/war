@@ -1,13 +1,35 @@
 .container {
-  background-color: rgb(84, 131, 14);
+  background-color: rgb(168, 246, 51);
   justify-content: center;
   align-items: center;
   color: aliceblue;
   text-align: center;
-  font: 
+  font-family: 'Lacquer', sans-serif;
+  border-radius: 0.5in;
+  border-width: 0.5in;
+  border-color: rgba(41, 41, 41, 0.75);
+  margin-top: 8mm;
 }
 
+.identifier {
+font-size: x-large;
+color: #b01f4a;
+}
 
+.title {
+  font-size: 20mm;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.438)
+}
+
+.btn {
+  margin-bottom: 15px;
+}
+
+.winnermsg {
+  color:red;
+  font-size: 100px;
+}
 
 @charset "UTF-8";
 .card {

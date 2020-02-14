@@ -37,7 +37,8 @@ You’ll have contradicting feelings when playing this game, we get it, but that
 
 ---
 
-### Screenshorts
+### Screenshots
+<img src="https://imgur.com/a/qLsCRrX">
 
 [https://imgur.com/a/qLsCRrX](https://imgur.com/a/qLsCRrX)
 
