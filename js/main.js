@@ -3,15 +3,16 @@ var cards;
 
 
 /*----- app's state (variables) -----*/
-//These connect code with JS only. Make words plural when applicable. 
 var deck1Values;
 var flipped1Value;
 var deck2Values;
 var flipped2Value;
 var deck1Dealt = [];
 var deck2Dealt = [];
-// var score1 = [];
-// var score2 = [];
+var compare1;
+var compare2;
+var p1Score = 0;
+var p2Score = 0;
 
 
 
@@ -21,7 +22,9 @@ var flipped1 = document.getElementById('flipped1');
 var deck2 = document.getElementById('deck2');
 var flipped2 = document.getElementById('flipped2');
 var playBtn = document.getElementById('playBtn');
-//const playReset?? - I could use play to play and reset when game is over
+var score1 = document.getElementById('score1');
+var message = document.getElementById('message');
+
 
 /*----- event listeners -----*/
 playBtn.addEventListener('click', play);
@@ -68,9 +71,26 @@ function deal() {
 
 function play() {
     cardPicked = deck1Values.pop();
+    compare1 = lookUp(cardPicked);
+    flipped1.className = 'card large'
     flipped1.classList.add(cardPicked)
-}   
- 
+    cardPicked = deck2Values.pop();
+    compare2 = lookUp(cardPicked);
+    flipped2.className = 'card large'
+    flipped2.classList.add(cardPicked);
+    
+
+    getScore();
+    render();
+} 
+
+function getScore(){
+    if (compare1 > compare2) {
+    p2Score += 3; 
+    } else {
+        p1Score += 3; 
+
+    }}
 
 
 function render() { 
@@ -82,6 +102,14 @@ function render() {
     if (deck2Values.length !== 0) {deck2.classList.add('back-blue')}
     if (deck1Values.length !== 0) {deck1.classList.remove('outline')}
     if (deck2Values.length !== 0) {deck2.classList.remove('outline')}
+    score1.textContent = p1Score;
+    score2.textContent = p2Score;
+    if (p1Score === 15) {
+    message.textContent = "Athlete 1 Wins" 
+    }
+    if (p2Score === 15) {
+        message.textContent = "Athlete 2 Wins" 
+        }
 };
 
 
