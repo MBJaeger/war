@@ -39,9 +39,9 @@ You’ll have contradicting feelings when playing this game, because who has eve
 
 ### Screenshots
 <img src="images/wireframe.jpeg">
-<img src="images/warShot1.png">
-<img src="images/warShot2.png">
-<img src="images/warShot3.png">
+<img src="images/War Screenshots/warShot1.png">
+<img src="images/War Screenshots/warShot2.png">
+<img src="images/War Screenshots/warShot3.png">
 ---
 
 ### Technologies Used
