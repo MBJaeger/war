@@ -1,5 +1,5 @@
 # Burpee War
-### Where the loser wins strength
+### Where it's all about winnning strength!
 
 ---
 
@@ -8,8 +8,6 @@ February 2020/MBJaeger
 ---
 
 ### Description
-
-Burpee War - A Card game where it's all about winning strength!
 
 This game is inspired by the conventional War Game, where there are two players, one full deck of cards and chances to win or lose, depending on who gets the highest flipped card.
 
