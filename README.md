@@ -1,3 +1,4 @@
+# Burpee War
 ### Where the loser wins strength
 
 ---
@@ -63,5 +64,7 @@ You’ll have contradicting feelings when playing this game, we get it, but that
 Play this game daily! It will help you get your body moving, become stronger and release happy hormones!
 
 Have fun and we hope you lose often!
+
+Background credit: www.hipwallpaper.com
 
 Visit our page: [https://mbjaeger.github.io/war/](https://mbjaeger.github.io/war/)
