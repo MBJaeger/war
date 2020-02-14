@@ -29,11 +29,6 @@ const playbtn = document.getElementById('playbtn')
 playBtn.addEventListener('click', play);
 
 // /*----- functions -----*/
-<<<<<<< HEAD
-// function play() {
-// console.log('working');
-// }
-=======
 function init() {
     cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
     "hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
@@ -45,140 +40,18 @@ function init() {
     deal();
     render();
 };
->>>>>>> master
 
 function shuffle() {
     let idx = cards.length, temp, rndIdx;
     while (0 !== idx) {
-<<<<<<< HEAD
-    rndIdx = Math.floor(Math.random() * idx);
-    idx -= 1;
-    temp = cards[idx];
-    cards[idx] = cards[rndIdx];
-    cards[rndIdx] = temp;
-    }
-};
-
-function deal() {
-    //shuffle();
-    if (cards.length) {
-        for (let i = 0; i < 26; i++) {
-        pile1distro = pile1Up.splice(0, 1);
-        pile1cards.push(pile1distro[0]);
-     }
-        for (let i = 0; i < 26; i++) {
-        pile2distro = pile2Up.splice(0, 1);
-        pile2cards.push(pile2distro[0]);
-=======
      rndIdx = Math.floor(Math.random()*idx);
      idx -= 1;
      temp = cards[idx];
      cards[idx] = cards [rndIdx];
      cards[rndIdx] = temp;   
->>>>>>> master
     }
 };
 
-<<<<<<< HEAD
-
-
-function play() {
-    if (pile1cards.length > 0 && pile2cards.length > 0) {
-        pile1flipped = pile1cards.splice(0, 1);
-        pile1up.classList.replace('outline', pile1flipped);
-      }
-    if (pile2cards.length > 0 && pile2cards.length > 0) {
-        pile2flipped = pile2cards.splice(0, 1);
-        pile2flipped.classList.replace('outline', pile2flipped);    
-  }
-};
-//compareCards();
-
-
-function winnerCheck() {
-   //turning this one to a point system, where game stops when player reaches 15 points. 
-    if (pile1cards.length === 0) {
-        message.textContent = "Player Two Wins!"
-
-    } else if (pile2cards.length === 0) {
-        message.textContent = "Player One Wins!"
-    }
-};
-
-function compareCards() {
-    if (lookUp(pile1flipped) > lookUp(pile2flipped)) {
-        pile1cards.push(`${pile1flipped}`);
-        pile1cards.push(`${pile2flipped}`);
-        pile2cards.splice(pile2cards.length, 1);
-        winHand = 1;
-    } else if (lookUp(pile1flipped) < lookUp(pile2flipped)) {
-        pile2cards.push(`${pile2flipped}`);
-        pile2cards.push(`${pile1flipped}`);
-        pile1cards.splice(pile1cards.length, 1);
-        winHand = 2;
-    } else {
-        war();
-    }
-    winnerCheck();
-};
-
-
-// function flipCard() {
-//     if (cards.length) {
-//     let rndIdx = Math.floor(Math.random() * cards.length) 
-//     cardFlipped = cards.splice(rndIdx, 1);
-//     flippedCards.push(cardFlipped[0]); 
-//     }
-//     render(); 
-// }
-
-
-
-// function render() {
-//     //removedCard = cardFlipped;
-//     if (flippedCards.length === 1){
-//     pileA2.classList.replace('outline', cardFlipped)
-//     } else {
-//         pileA2.classList.replace(removedCard, cardFlipped[0]);
-//     }
-//     if (cards.length === 0){
-//         pileA1.classList.replace('back', 'outline')
-//     }
-//     if (cards.length === 26) {
-//         pileA1.classList.remove('shadow');
-//         pileB1.classList.add('shadow');
-//     }
-// };
-
-
-
-//on StartClick 
-//--Shuffle cards, 26 cards get assigned to each player.
-//on PlayClick - gets highlighted right after cards have been assigned.
-    //card on top of each deck moves to "faceUp" space. 
-    //recognize highest value from "faceUp" cards and origin player and move both cards to botton of "faceDown" pile
-    //When both 'faceUp' cards have equal value, WAR STARTS
-            //BIG War message pop-up
-            //Three face down + One face up card gets moved to the "War" space
-            //Player with highest value on "faceUp" card, wins all cards.
-
-    //Every time a player looses a hand, 3 burpees are asigned to their count.         
-    //Game ends when one player reaches 15 burpees. 
-    //Message: "Time for burpees!"" Pops up      
-
-
-//GAME DEVELOPMENT LIST
-//1 create board - two positions per player, two positions for war
-
-//How to structure code
-// 1) Create players
-// 2) Create Board
-//3) Create Card Deck
-//4) Each Player has 
-
-
-
-=======
 function deal() {
     if (cards.length === 52) {
     for (i=1; i<=26; i++) {
@@ -233,7 +106,6 @@ function render() {
     }
 };
 
->>>>>>> master
 function lookUp(x) {
     if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
         return 14;
@@ -263,8 +135,4 @@ function lookUp(x) {
         return 2;
     }
 };
-<<<<<<< HEAD
-
-=======
 init();
->>>>>>> master
