@@ -1,3 +1,6 @@
+
+
+
 @charset "UTF-8";
 .card {
   box-sizing: border-box;
@@ -10,7 +13,7 @@
   width: 4.0em;
   height: 5.5em;
   /* Add a default background color and border. */
-  background-color: rgb(246, 245, 245);
+  background-color: rgb(245, 245, 246);
   border-radius: 0.20em;
   border: 1px dobl #c3c3c3;
   /* Scale and set the background settings. */
