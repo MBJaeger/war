@@ -29,9 +29,9 @@ You’ll have contradicting feelings when playing this game, because who has eve
 
 3) On each hand played, three burpees are assigned to the player with the highest card value, zero to the player with the lowest card value. 
 
-4) When a player reaches 15 burpees the game ENDS.
+4) When a player reaches 15 burpees the game ENDS. 
 
- 6) Both players get to do the amount of burpees on their scoreboard (the loser will always have 15).
+ 6) Both players get to do the amount of burpees on their scoreboard (the winner will always have 15).
 
 ---
 
