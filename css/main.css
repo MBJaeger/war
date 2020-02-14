@@ -1,3 +1,40 @@
+.container {
+  background-color: rgb(168, 246, 51);
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  text-align: center;
+  font-family: 'Lacquer', sans-serif;
+  border-radius: 0.5in;
+  box-shadow: 0 0 3pt 2pt rgb(70, 0, 0);
+  margin-top: 8mm;
+}
+
+.identifier {
+  font-size: 30px;
+  font-weight: bold;
+  color: #b40202a2;
+}
+
+.title {
+  font-size: 20mm;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.555)
+}
+
+.winnermsg {
+  color:rgb(185, 13, 13);
+  font-size: 70px;
+}
+
+.memo {
+  color: rgba(0, 0, 0, 0.678);
+}
+
+.button {
+  margin-bottom: 2mm;
+}
+
 @charset "UTF-8";
 .card {
   box-sizing: border-box;
@@ -10,7 +47,7 @@
   width: 4.0em;
   height: 5.5em;
   /* Add a default background color and border. */
-  background-color: rgb(246, 245, 245);
+  background-color: rgb(245, 245, 246);
   border-radius: 0.20em;
   border: 1px dobl #c3c3c3;
   /* Scale and set the background settings. */

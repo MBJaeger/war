@@ -26,18 +26,31 @@ const playbtn = document.getElementById('playbtn')
 
 
 /*----- event listeners -----*/
-playButton.addEventListener('click', onClick);
-
-
+playBtn.addEventListener('click', play);
 
 // /*----- functions -----*/
+<<<<<<< HEAD
 // function play() {
 // console.log('working');
 // }
+=======
+function init() {
+    cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ",
+    "hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09",
+    "c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06",
+    "s05","s04","s03","s02"];
+    deck1Values = [];
+    deck2Values = [];
+    shuffle();
+    deal();
+    render();
+};
+>>>>>>> master
 
 function shuffle() {
     let idx = cards.length, temp, rndIdx;
     while (0 !== idx) {
+<<<<<<< HEAD
     rndIdx = Math.floor(Math.random() * idx);
     idx -= 1;
     temp = cards[idx];
@@ -56,8 +69,17 @@ function deal() {
         for (let i = 0; i < 26; i++) {
         pile2distro = pile2Up.splice(0, 1);
         pile2cards.push(pile2distro[0]);
+=======
+     rndIdx = Math.floor(Math.random()*idx);
+     idx -= 1;
+     temp = cards[idx];
+     cards[idx] = cards [rndIdx];
+     cards[rndIdx] = temp;   
+>>>>>>> master
     }
+};
 
+<<<<<<< HEAD
 
 
 function play() {
@@ -156,6 +178,62 @@ function compareCards() {
 
 
 
+=======
+function deal() {
+    if (cards.length === 52) {
+    for (i=1; i<=26; i++) {
+    deck1Dealt = cards.splice(0, 1);
+    deck1Values.push(deck1Dealt[0]);
+    }
+    for (let i = 0; i < 26; i++) {
+    deck2Dealt = cards.splice(0, 1);
+    deck2Values.push(deck2Dealt[0]);  
+        }
+    }
+};
+
+function play() {
+    cardPicked = deck1Values.pop();
+    compare1 = lookUp(cardPicked);
+    flipped1.className = 'card large'
+    flipped1.classList.add(cardPicked)
+    cardPicked = deck2Values.pop();
+    compare2 = lookUp(cardPicked);
+    flipped2.className = 'card large'
+    flipped2.classList.add(cardPicked);
+    
+getScore();
+render();
+}; 
+
+function getScore(){
+    if (compare1 > compare2) {
+    p2Score += 3; 
+    } else {
+    p1Score += 3; 
+}
+};
+
+function render() { 
+    if (deck1Values.length === 0) {deck1.classList.add('outline')}
+    if (deck2Values.length === 0) {deck2.classList.add('outline')}
+    if (deck1Values.length === 0) {deck1.classList.remove('back-blue')}
+    if (deck2Values.length === 0) {deck2.classList.remove('back-blue')}
+    if (deck1Values.length !== 0) {deck1.classList.add('back-blue')}
+    if (deck2Values.length !== 0) {deck2.classList.add('back-blue')}
+    if (deck1Values.length !== 0) {deck1.classList.remove('outline')}
+    if (deck2Values.length !== 0) {deck2.classList.remove('outline')}
+    score1.textContent = p1Score;
+    score2.textContent = p2Score;
+    if (p1Score === 15) {
+    message.textContent = "Athlete 1 Wins" 
+    }
+    if (p2Score === 15) {
+    message.textContent = "Athlete 2 Wins" 
+    }
+};
+
+>>>>>>> master
 function lookUp(x) {
     if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
         return 14;
@@ -185,4 +263,8 @@ function lookUp(x) {
         return 2;
     }
 };
+<<<<<<< HEAD
 
+=======
+init();
+>>>>>>> master
