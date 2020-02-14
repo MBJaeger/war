@@ -13,7 +13,7 @@ var compare2;
 var p1Score = 0;
 var p2Score = 0;
 
-/*----- cached element references -----*///connect with the DOM
+/*----- cached element references -----*/
 var deck1 = document.getElementById('deck1');
 var flipped1 = document.getElementById('flipped1');
 var deck2 = document.getElementById('deck2');
