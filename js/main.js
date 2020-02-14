@@ -1,7 +1,6 @@
 /*----- constants -----*/
 var cards;
 
-
 /*----- app's state (variables) -----*/
 var deck1Values;
 var flipped1Value;
@@ -14,8 +13,6 @@ var compare2;
 var p1Score = 0;
 var p2Score = 0;
 
-
-
 /*----- cached element references -----*///connect with the DOM
 var deck1 = document.getElementById('deck1');
 var flipped1 = document.getElementById('flipped1');
@@ -25,10 +22,8 @@ var playBtn = document.getElementById('playBtn');
 var score1 = document.getElementById('score1');
 var message = document.getElementById('message');
 
-
 /*----- event listeners -----*/
 playBtn.addEventListener('click', play);
-
 
 // /*----- functions -----*/
 function init() {
@@ -41,8 +36,7 @@ function init() {
     shuffle();
     deal();
     render();
-}
-
+};
 
 function shuffle() {
     let idx = cards.length, temp, rndIdx;
@@ -56,15 +50,14 @@ function shuffle() {
 };
 
 function deal() {
-    //shuffle();
-        if (cards.length === 52) {
-        for (i=1; i<=26; i++) {
-            deck1Dealt = cards.splice(0, 1);
-            deck1Values.push(deck1Dealt[0]);
-        }
-        for (let i = 0; i < 26; i++) {
-            deck2Dealt = cards.splice(0, 1);
-            deck2Values.push(deck2Dealt[0]);  
+    if (cards.length === 52) {
+    for (i=1; i<=26; i++) {
+    deck1Dealt = cards.splice(0, 1);
+    deck1Values.push(deck1Dealt[0]);
+    }
+    for (let i = 0; i < 26; i++) {
+    deck2Dealt = cards.splice(0, 1);
+    deck2Values.push(deck2Dealt[0]);  
         }
     }
 };
@@ -79,19 +72,17 @@ function play() {
     flipped2.className = 'card large'
     flipped2.classList.add(cardPicked);
     
-
-    getScore();
-    render();
-} 
+getScore();
+render();
+}; 
 
 function getScore(){
     if (compare1 > compare2) {
     p2Score += 3; 
     } else {
-        p1Score += 3; 
-
-    }}
-
+    p1Score += 3; 
+}
+};
 
 function render() { 
     if (deck1Values.length === 0) {deck1.classList.add('outline')}
@@ -108,10 +99,9 @@ function render() {
     message.textContent = "Athlete 1 Wins" 
     }
     if (p2Score === 15) {
-        message.textContent = "Athlete 2 Wins" 
-        }
+    message.textContent = "Athlete 2 Wins" 
+    }
 };
-
 
 function lookUp(x) {
     if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
