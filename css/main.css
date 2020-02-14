@@ -6,29 +6,35 @@
   text-align: center;
   font-family: 'Lacquer', sans-serif;
   border-radius: 0.5in;
-  border-width: 0.5in;
-  border-color: rgba(41, 41, 41, 0.75);
+  box-shadow: 0 0 3pt 2pt rgb(70, 0, 0);
   margin-top: 8mm;
 }
 
 .identifier {
-font-size: x-large;
-color: #b01f4a;
+font-size: 30px;
+font-weight: bold;
+color: #b40202a2;
+
 }
 
 .title {
   font-size: 20mm;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.438)
+  color: rgba(0, 0, 0, 0.555)
 }
 
-.btn {
-  margin-bottom: 15px;
-}
 
 .winnermsg {
-  color:red;
-  font-size: 100px;
+  color:rgb(185, 13, 13);
+  font-size: 70px;
+}
+
+.memo {
+  color: rgba(0, 0, 0, 0.678);
+}
+
+.button {
+  margin-bottom: 2mm;
 }
 
 @charset "UTF-8";
